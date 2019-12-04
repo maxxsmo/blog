@@ -1,0 +1,80 @@
+h1 {
+  text-align: center;
+}
+
+.back_to_index_btn {
+  text-align: center;
+}
+
+.post {
+  color: rgb(64, 102, 98);
+  border: 2px lightblue solid;
+  background-color: lightblue;
+  padding: 0px 15px 15px 15px;
+  margin: 20px auto;
+  width: 40%;
+}
+
+.title_post {
+  text-align: center;
+  background-color: lightgoldenrodyellow !important;
+  padding: 5px 0px!important;
+}
+
+.comments {
+  color: rgb(88, 68, 37);
+  border: 2px rgb(180, 172, 159) solid;
+  background-color: rgb(180, 172, 159);
+  padding: 0px 15px 15px 15px;
+  margin: 20px auto;
+  width: 40%;
+}
+
+.a {
+  color: rgb(133, 125, 112);
+  background-color: rgb(228, 219, 204);
+  padding: 5px;
+}
+
+form {
+  width: 100%;
+}
+
+.input {
+  max-width: 15%;
+  
+  padding: 5px 10px;
+  border: none !important;
+  background-color: whitesmoke;
+}
+.input[name="author"] {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+.input[name="comment"] {
+  max-width: 60%;
+  width: 55%;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.input[type="submit"] {
+  float: right;
+}
+
+.btn {
+  width: 15%;
+  min-width: 10%;
+  border-radius: 50px;
+  background-color: rgb(228, 219, 204);
+  color: grey;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: rgb(218, 208, 195);
+}
+
+.input:focus {
+  outline: none;
+}
