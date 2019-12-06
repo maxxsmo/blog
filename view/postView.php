@@ -42,6 +42,7 @@
         <input class="input btn" type="submit" value="envoyer" />
     
 </form>
+ 
     <?php 
       while($comments_data = $comments->fetch()):
     ?>
