@@ -14,10 +14,10 @@ try
                 post();
             }
             else {
-                throw new Exception ("erreur 404");
+                throw new Exception ("erreur 404".$_GET["id"]);
             }
         }
-        elseif ($_GET["action"] == "addComment") {
+        elseif ($_GET["action"] == "add") {
             if (isset($_GET["id"]) && $_GET["id"] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                     addComment($_GET["id"], $_POST["author"], $_POST["comment"]); 
@@ -29,6 +29,10 @@ try
             else {
                 throw new Exception ("erreur");
             }
+        }
+        elseif($_GET["action"] == "delete") {
+            
+            deleteComment();
         }
     }
     else {

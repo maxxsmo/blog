@@ -33,7 +33,7 @@
   
   <div class="comments">
   <p><strong>Ajouter un commentaire :</strong></p>
-  <form action="index.php?action=addComment&id=<?= $data['id'] ?>" method="post">
+  <form action="index.php?action=add&id=<?= $data['id'] ?>" method="post">
     
         <input class="input" type="text" id="author" name="author" placeholder="auteur" />
    
@@ -46,10 +46,10 @@
       while($comments_data = $comments->fetch()):
     ?>
     
-    <p>
-      id: <?= $comments_data["id"] ?> 
+    <p> 
       <strong><?=$comments_data["author"]?> :</strong> 
       <em><?=$comments_data["date"]?></em>
+      <a href="index.php?action=delete&id=<?= $comments_data['id']?>" >supprimer</a>
     </p>
 
     <p class="a">

@@ -31,8 +31,17 @@ function addComment($postId, $author, $comment) {
   else {
     header("Location: index.php?action=post&id=".$postId);
   }
+}
 
+function deleteComment() {
   
-} 
+  $obj = new MaximeSmolis\Blog\Model\CommentManager();
+  $selectComment = $obj->commentToDelete($_GET["id"]);
+  header("Location: index.php?action=post&id=1");
+  
+  
+}
+  
+
   
 
