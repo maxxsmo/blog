@@ -37,8 +37,13 @@ function deleteComment() {
   
   $obj = new MaximeSmolis\Blog\Model\CommentManager();
   $selectComment = $obj->commentToDelete($_GET["id"]);
-  header("Location: index.php?action=post&id=1");
-  
+  if($selectComment == false) {
+    throw new Exception("impossible d'ajouter un commentaire");
+  }
+  else {
+    header("Location: ".$_SERVER['HTTP_REFERER']);
+    exit;
+  }
   
 }
   
