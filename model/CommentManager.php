@@ -32,6 +32,13 @@ class CommentManager extends Manager {
     $toDelete->execute(array("id" => $id));
     return $toDelete;
   }
+
+  public function getComment($id) { 
+    $db= $this->dbConnect();
+    $comment = $db->prepare("SELECT * FROM comments where id = $id");
+    $comment->execute(array($id));
+    return $comment;
+  }
   
 
 }

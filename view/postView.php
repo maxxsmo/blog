@@ -42,15 +42,22 @@
         <input class="input btn" type="submit" value="envoyer" />
     
 </form>
- 
+<?= $_SERVER['HTTP_REFERER']?>
+<p>
+
+    http://<?= $_SERVER['HTTP_HOST'] ?><?= $_SERVER['REQUEST_URI'] ?>
+    </p>
     <?php 
       while($comments_data = $comments->fetch()):
     ?>
     
     <p> 
+    
+    
       <strong><?=$comments_data["author"]?> :</strong> 
       <em><?=$comments_data["date"]?></em>
       <a href="index.php?action=delete&id=<?= $comments_data['id']?>" >supprimer</a>
+      <a href="index.php?action=comment&id=<?= $comments_data['id']?>" >modifier</a>
     </p>
 
     <p class="a">

@@ -21,6 +21,13 @@ function post() {
   require('view/postView.php');
 }
 
+function comment() {
+  $obj = new MaximeSmolis\Blog\Model\CommentManager();
+  $comment = $obj->getComment($_GET["id"]);
+
+  require("view/modifyComment.php");
+}
+
 function addComment($postId, $author, $comment) {
 
   $obj = new MaximeSmolis\Blog\Model\CommentManager();
@@ -34,17 +41,16 @@ function addComment($postId, $author, $comment) {
 }
 
 function deleteComment() {
-  
+  $redirect_to = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'index.php';
   $obj = new MaximeSmolis\Blog\Model\CommentManager();
   $selectComment = $obj->commentToDelete($_GET["id"]);
   if($selectComment == false) {
     throw new Exception("impossible d'ajouter un commentaire");
   }
   else {
-    header("Location: ".$_SERVER['HTTP_REFERER']);
+    header("Location: ".$redirect_to);
     exit;
   }
-  
 }
   
 

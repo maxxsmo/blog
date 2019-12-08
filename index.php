@@ -17,6 +17,14 @@ try
                 throw new Exception ("erreur 404".$_GET["id"]);
             }
         }
+        elseif($_GET["action"] == "comment") {
+            if(isset($_GET["id"]) && $_GET["id"] > 0 ) {
+                comment();
+            }
+            else {
+                throw new Exception ("impossible d'afficher, ce commentaire n'existe pas.");
+            }
+        }
         elseif ($_GET["action"] == "add") {
             if (isset($_GET["id"]) && $_GET["id"] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
