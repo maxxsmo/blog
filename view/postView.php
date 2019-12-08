@@ -42,11 +42,7 @@
         <input class="input btn" type="submit" value="envoyer" />
     
 </form>
-<?= $_SERVER['HTTP_REFERER']?>
-<p>
 
-    http://<?= $_SERVER['HTTP_HOST'] ?><?= $_SERVER['REQUEST_URI'] ?>
-    </p>
     <?php 
       while($comments_data = $comments->fetch()):
     ?>

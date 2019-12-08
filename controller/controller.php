@@ -24,7 +24,7 @@ function post() {
 function comment() {
   $obj = new MaximeSmolis\Blog\Model\CommentManager();
   $comment = $obj->getComment($_GET["id"]);
-
+  $comment_data = $comment->fetch();
   require("view/modifyComment.php");
 }
 
