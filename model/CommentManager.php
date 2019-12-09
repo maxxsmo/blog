@@ -1,7 +1,7 @@
 <?php
 
 namespace MaximeSmolis\Blog\Model;
-
+require("public/errorDisplay.php");
 require_once("model/Manager.php");
 
 
@@ -35,9 +35,16 @@ class CommentManager extends Manager {
 
   public function getComment($id) { 
     $db= $this->dbConnect();
-    $comment = $db->prepare("SELECT * FROM comments where id = $id");
+    $comment = $db->prepare("SELECT * FROM comments where id = ?");
     $comment->execute(array($id));
     return $comment;
+  }
+
+  public function newComment($id, $comment) {
+    $db = $this->dbConnect();
+    $update = $db->prepare("UPDATE comments SET comment = :comment, comment_date = NOW() WHERE id = :id");
+    $update->execute(array("comment" => $comment, "id" => $id));
+    return $update;
   }
   
 

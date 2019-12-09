@@ -7,8 +7,16 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>coucou mon joli</h1>
+  <h1>Modifier le commentaire</h1>
+
   <a href="javascript:history.go(-1)">retour</a>
-  <p><?= $comment_data["comment"] ?></p>
+
+  <form action="index.php?action=modifyComment&amp;id=<?= $comment_data["id"]?>" method="post">
+    <input type="comment" name="newComment" placeholder="commentaire" />
+    <input type="submit" value="envoyer" />
+  </form>
+
+  <p><?= $comment_data["id"] ?> <?= $comment_data["author"]?></p>
+
 </body>
 </html>

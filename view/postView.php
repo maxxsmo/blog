@@ -52,14 +52,20 @@
     
       <strong><?=$comments_data["author"]?> :</strong> 
       <em><?=$comments_data["date"]?></em>
-      <a href="index.php?action=delete&id=<?= $comments_data['id']?>" >supprimer</a>
-      <a href="index.php?action=comment&id=<?= $comments_data['id']?>" >modifier</a>
+      <a class="link" href="index.php?action=delete&id=<?= $comments_data['id']?>" >supprimer</a>
+      <a class="link" href="index.php?action=comment&id=<?= $comments_data["id"]?>">modifier</a>
     </p>
 
     <p class="a">
       <?=$comments_data["comment"]?>
     </p>
-
+    <p>
+      <form id="modify" onsubmit="hideOnClick()" action="index.php?action=modifyComment&amp;id=<?= $comments_data["id"]?>" method="post">
+      <input class="input" type="comment" name="newComment" placeholder="commentaire" />
+      <input class="input btn" type="submit" value="envoyer" />
+  </form>
+</p>
+  
     <?php 
       endwhile;
       $comments->closeCursor();
@@ -67,5 +73,6 @@
     
   </div>
 
+<!-- <script type="text/javascript" src="public/js/script.js"></script> -->
 </body>
 </html>

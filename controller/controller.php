@@ -1,7 +1,8 @@
 <?php
 
+require("public/errorDisplay.php");
 require_once('model/PostManager.php');
-require_once('model/CommentManager.php');
+require('model/CommentManager.php');
 
 // use MaximeSmolis\Blog\Model;
 // on peut utiliser le mot-clé  use  en début d'un fichier qui fait régulièrement appel à des classes d'un même namespace, pour éviter de se répéter à chaque instanciation d'objet.
@@ -49,10 +50,20 @@ function deleteComment() {
   }
   else {
     header("Location: ".$redirect_to);
-    exit;
   }
+
 }
   
-
+function update($id, $comment) {
+  $redirect_to = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'index.php';
+  $obj = new MaximeSmolis\Blog\Model\CommentManager();
+  $update = $obj->newComment($id, $comment);
+  if($update) {
+    header("Location: index.php");
+  }
+  else {
+    throw new Exception("erreur : impossible de modifier le commentaire (controller)");
+  }
+}
   
 

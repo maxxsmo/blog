@@ -1,6 +1,6 @@
 
     <?php
-
+    require("public/errorDisplay.php");
     require("controller/controller.php");
 try 
 {
@@ -17,6 +17,7 @@ try
                 throw new Exception ("erreur 404".$_GET["id"]);
             }
         }
+        
         elseif($_GET["action"] == "comment") {
             if(isset($_GET["id"]) && $_GET["id"] > 0 ) {
                 comment();
@@ -38,10 +39,19 @@ try
                 throw new Exception ("erreur");
             }
         }
+        elseif($_GET["action"] == "modifyComment") {
+            if(isset($_GET["id"]) && !empty($_POST["newComment"])) {
+              update($_GET["id"], $_POST["newComment"]);
+            }  
+            else {
+                throw new Exception("erreur index 12345");
+            }
+        }
         elseif($_GET["action"] == "delete") {
             
             deleteComment();
         }
+        
     }
     else {
         listPosts();
