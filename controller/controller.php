@@ -54,12 +54,12 @@ function deleteComment() {
 
 }
   
-function update($id, $comment) {
+function update($id, $comment, $post_id) {
   $redirect_to = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'index.php';
   $obj = new MaximeSmolis\Blog\Model\CommentManager();
   $update = $obj->newComment($id, $comment);
   if($update) {
-    header("Location: index.php");
+    header("Location: index.php?action=post&id=".$post_id);
   }
   else {
     throw new Exception("erreur : impossible de modifier le commentaire (controller)");

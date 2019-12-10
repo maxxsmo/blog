@@ -41,7 +41,7 @@ try
         }
         elseif($_GET["action"] == "modifyComment") {
             if(isset($_GET["id"]) && !empty($_POST["newComment"])) {
-              update($_GET["id"], $_POST["newComment"]);
+              update($_GET["id"], $_POST["newComment"], $_POST["post_id"]);
             }  
             else {
                 throw new Exception("erreur index 12345");

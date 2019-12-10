@@ -13,10 +13,10 @@
 
   <form action="index.php?action=modifyComment&amp;id=<?= $comment_data["id"]?>" method="post">
     <input type="comment" name="newComment" placeholder="commentaire" />
+    <input type="hidden" name="post_id" value="<?= $comment_data["post_id"]; ?>">
     <input type="submit" value="envoyer" />
   </form>
 
-  <p><?= $comment_data["id"] ?> <?= $comment_data["author"]?></p>
-
+ 
 </body>
 </html>
