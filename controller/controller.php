@@ -18,7 +18,7 @@ function post() {
   $post = $obj->getPost($_GET["id"]);
   $obj = new MaximeSmolis\Blog\Model\CommentManager();
   $comments = $obj->getComments($_GET["id"]);
-
+  $data = $post->fetch();
   require('view/postView.php');
 }
 

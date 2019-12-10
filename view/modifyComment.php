@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
+<?php 
+$title = "modifier";
+ob_start();
+?>
   <h1>Modifier le commentaire</h1>
 
   <a href="javascript:history.go(-1)">retour</a>
@@ -18,5 +13,7 @@
   </form>
 
  
-</body>
-</html>
+<?php 
+$content = ob_get_clean();
+require("view/template.php");
+?>

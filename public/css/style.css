@@ -62,11 +62,7 @@ form {
   float: right;
 }
 
-.input[name="newComment"] {
-  max-width: 80%;
-  width: 75%;
-  border-radius: 50px;
-}
+
 
 .btn {
   width: 15%;
